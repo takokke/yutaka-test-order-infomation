@@ -1,5 +1,9 @@
 import { KintoneRestAPIClient, KintoneRecordField } from "@kintone/rest-api-client";
 
+
+// リポジトリURL
+// https://github.com/takokke/yutaka-test-order-infomation
+
 (() => {
     'use strict';
     /* 定数の定義*/
