@@ -28,7 +28,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
   // 末尾に[縺]を入れる
   /* 関数の定義 */
   var replaceNonJISCharacters = function replaceNonJISCharacters(input) {
-    var nonJISRegex = /[^\u0020-\u007E\u00A1-\u00DF\uFF61-\uFF9F\u3041-\u3093\u30A1-\u30F6\u30FB-\u30FC\u4E00-\u9FA0\u3000-\u303F\uFF01-\uFF5E\uFF10-\uFF5E]/g;
+    var nonJISRegex = /[^\u0020-\u007E\u00A1-\u00DF\uFF61-\uFF9F\u3041-\u3093\u30A1-\u30F6\u30FB-\u30FC\u4E00-\u9FA0\u3000-\u303F\uFF01-\uFF5E\uFF10-\uFF5E\u2212]/g;
 
     // 置き換え文字を定義
     var replacementCharacter = '[縺]';
@@ -38,7 +38,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
   // 環境依存文字をチェックする関数
   var containsNonJISCharacters = function containsNonJISCharacters(input) {
     /* 定数の定義*/
-    var nonJISRegex = /[^\u0020-\u007E\u00A1-\u00DF\uFF61-\uFF9F\u3041-\u3093\u30A1-\u30F6\u30FB-\u30FC\u4E00-\u9FA0\u3000-\u303F\uFF01-\uFF5E\uFF10-\uFF5E]/g;
+    var nonJISRegex = /[^\u0020-\u007E\u00A1-\u00DF\uFF61-\uFF9F\u3041-\u3093\u30A1-\u30F6\u30FB-\u30FC\u4E00-\u9FA0\u3000-\u303F\uFF01-\uFF5E\uFF10-\uFF5E\u2212]/g;
 
     // \u0020-\u007E: 基本的なASCII文字（空白や記号を含む）
     // \u00A1-\u00DF: 半角カタカナとラテン文字の一部
@@ -123,7 +123,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
         while (1) switch (_context.prev = _context.next) {
           case 0:
             _context.prev = 0;
-            (_document$getElementB = document.getElementById("#replace_button")) === null || _document$getElementB === void 0 || _document$getElementB.classList.add("click");
+            (_document$getElementB = document.getElementById('replace_button')) === null || _document$getElementB === void 0 || _document$getElementB.classList.add("click");
             button.disabled = true;
             client = new _kintone_rest_api_client__WEBPACK_IMPORTED_MODULE_0__.KintoneRestAPIClient({});
             APP_ID = kintone.app.getId();
@@ -140,7 +140,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
             return client.record.getAllRecords(getAllRecordsParams);
           case 10:
             getAllRecordsResp = _context.sent;
-            nonJISRegex = /[^\u0020-\u007E\u00A1-\u00DF\uFF61-\uFF9F\u3041-\u3093\u30A1-\u30F6\u30FB-\u30FC\u4E00-\u9FA0\u3000-\u303F\uFF01-\uFF5E\uFF10-\uFF5E]/g;
+            nonJISRegex = /[^\u0020-\u007E\u00A1-\u00DF\uFF61-\uFF9F\u3041-\u3093\u30A1-\u30F6\u30FB-\u30FC\u4E00-\u9FA0\u3000-\u303F\uFF01-\uFF5E\uFF10-\uFF5E\u2212]/g;
             _context.next = 14;
             return getAllRecordsResp.filter(function (record) {
               return nonJISRegex.test(record.住所1.value) || nonJISRegex.test(record.住所2.value) || nonJISRegex.test(record.個人名_団体.value) || nonJISRegex.test(record.個人名_団体_フリガナ.value) || nonJISRegex.test(record.担当者_名.value) || nonJISRegex.test(record.担当者_名_フリガナ.value) || nonJISRegex.test(record.担当者_姓.value) || nonJISRegex.test(record.担当者_姓_フリガナ.value) || nonJISRegex.test(record.都道府県.value);
