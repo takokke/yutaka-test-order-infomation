@@ -22,7 +22,7 @@ module.exports = {
   plugins: [
     new ForkTsCheckerWebpackPlugin(),
   ],
-  devtool: 'source-map',
+  // devtool: 'source-map',
   optimization: {
     splitChunks: {
       chunks: 'all', // すべてのチャンクを分割

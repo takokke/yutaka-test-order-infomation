@@ -42,7 +42,9 @@ declare namespace kintone.types {
     ECCUBEリンク: kintone.fieldTypes.Link;
     その他: kintone.fieldTypes.Number;
 
+    現依存文字あり: kintone.fieldTypes.CheckBox;
     注文商品チェックボックス: kintone.fieldTypes.CheckBox;
+    依存文字あり: kintone.fieldTypes.CheckBox;
     同時注文チェックボックス: kintone.fieldTypes.CheckBox;
   }
   interface SavedFields extends Fields {
