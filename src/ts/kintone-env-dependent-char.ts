@@ -1,6 +1,5 @@
 import { KintoneRestAPIClient, KintoneRecordField } from "@kintone/rest-api-client";
 
-
 // リポジトリURL
 // https://github.com/takokke/yutaka-test-order-infomation
 
@@ -24,7 +23,7 @@ import { KintoneRestAPIClient, KintoneRecordField } from "@kintone/rest-api-clie
         return input.replace(JISRegex, replacementCharacter);
     }
 
-    // 環境依存文字をチェックする関数
+    // 機種依存文字をチェックする関数
     // 機種依存文字を含む場合、trueを返す
     const containsNonJISCharacters =  (input: string)=>{
         /* 定数の定義*/
@@ -188,7 +187,7 @@ import { KintoneRestAPIClient, KintoneRecordField } from "@kintone/rest-api-clie
         return event;
     })    
 
-    // レコード詳細画面において、環境依存文字を含むフィールドを黄色にする
+    // レコード詳細画面において、機種依存文字を含むフィールドを黄色にする
     // まずは、全種類のフィールドを取得する必要がある。
     kintone.events.on("app.record.detail.show", (event: KintoneEvent)=> {
 
@@ -255,7 +254,7 @@ import { KintoneRestAPIClient, KintoneRecordField } from "@kintone/rest-api-clie
         }
         const button = document.createElement("button");
         button.id = "replace_button";
-        button.innerHTML = '<span></span>環境依存文字を置換する';
+        button.innerHTML = '<span></span>機種依存文字を置換する';
         
         button.onclick = async () => {
 
@@ -440,7 +439,7 @@ import { KintoneRestAPIClient, KintoneRecordField } from "@kintone/rest-api-clie
                 if (replaceButton) {
                     replaceButton.classList.remove("click");
                     // HTMLを更新
-                    replaceButton.innerHTML = "<span></span>環境依存文字を置換する";
+                    replaceButton.innerHTML = "<span></span>機種依存文字を置換する";
                 }
                 button.disabled = false;
             }
